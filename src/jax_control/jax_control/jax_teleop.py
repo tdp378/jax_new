@@ -1,114 +1,88 @@
 import rclpy
 from rclpy.node import Node
-from jax_interfaces.msg import Command
+from geometry_msgs.msg import Twist
 import sys, select, termios, tty
 
 msg = """
 ---------------------------
-   Control Your Jax!
+   JAX STANDARD TWIST GRID
 ---------------------------
-Moving around:      Adjust Stance:
-   w                r : Increase Height
- a s d              f : Decrease Height
-                    t : Pitch Up / g : Pitch Down
- Space : TROT ON/OFF  y : Roll Right / h : Roll Left
+Moving around:      Speed Control:
+   u    i    o      w : increase linear speed
+   j    k    l      x : decrease linear speed
+   m    ,    .      e : increase angular speed
+                    c : decrease angular speed
 
-Current Command Status:
+Jax Height:         Stop:
+   t : Up           k or Space
+   b : Down
+
+(Note: 'i' is Forward. 'w' only changes speed settings!)
 """
 
-class JaxTeleop(Node):
+class JaxStandardTeleop(Node):
     def __init__(self):
         super().__init__('jax_teleop')
-        self.publisher_ = self.create_publisher(Command, 'jax_commands', 10)
+        self.publisher_ = self.create_publisher(Twist, 'cmd_vel', 10)
         self.settings = termios.tcgetattr(sys.stdin)
         
-        # Default State
-        self.x = 0.0
-        self.y = 0.0
-        self.th = 0.0
-        self.height = -0.18
-        self.pitch = 0.0
-        self.roll = 0.0
-        self.trot = 0
+        # Speed settings
+        self.speed = 0.2
+        self.turn = 1.0
         
-        # Fast timer for publishing, slow keyboard check
         self.timer = self.create_timer(0.05, self.publish_command)
         print(msg)
 
     def get_key(self):
         tty.setraw(sys.stdin.fileno())
-        # Use a very short timeout so the loop doesn't hang
         rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
-        if rlist:
-            key = sys.stdin.read(1)
-        else:
-            key = ''
+        key = sys.stdin.read(1) if rlist else ''
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.settings)
         return key
 
     def publish_command(self):
         key = self.get_key()
+        twist = Twist()
 
-        # Movement Logic
-        if key == 'w': self.x = 0.1
-        elif key == 's': self.x = -0.1
-        elif key == 'a': self.th = 0.5
-        elif key == 'd': self.th = -0.5
-        
-        # Stance Logic
-        elif key == 'r': self.height -= 0.005
-        elif key == 'f': self.height += 0.005
-        elif key == 't': self.pitch += 0.02
-        elif key == 'g': self.pitch -= 0.02
-        elif key == 'y': self.roll += 0.02
-        elif key == 'h': self.roll -= 0.02
-        
-        # Toggle Logic
-        elif key == ' ': # Spacebar
-            self.trot = 1 if self.trot == 0 else 0
-            status = "ACTIVE" if self.trot else "OFF"
-            print(f"\r>> Trot Mode: {status}   ", end="")
-            
-        elif key == '\x03': # CTRL-C
-            self.x = 0.0; self.th = 0.0; self.trot = 0
-            self.send_final_msg()
-            rclpy.shutdown()
-            return
-        
-        else:
-            # Stop moving if no key is pressed (Zero the velocity)
-            self.x = 0.0
-            self.y = 0.0
-            self.th = 0.0
+        # --- Speed Adjustments ---
+        if key == 'w':
+            self.speed *= 1.1
+            print(f"\rCurrent linear speed: {self.speed:.2f}  ", end="")
+        elif key == 'x':
+            self.speed *= 0.9
+            print(f"\rCurrent linear speed: {self.speed:.2f}  ", end="")
+        elif key == 'e':
+            self.turn *= 1.1
+            print(f"\rCurrent angular speed: {self.turn:.2f} ", end="")
+        elif key == 'c':
+            self.turn *= 0.9
+            print(f"\rCurrent angular speed: {self.turn:.2f} ", end="")
 
-        # Create and publish the message
-        cmd = Command()
-        cmd.horizontal_velocity = [float(self.x), float(self.y)]
-        cmd.yaw_rate = float(self.th)
-        cmd.height = float(self.height)
-        cmd.pitch = float(self.pitch)
-        cmd.roll = float(self.roll)
-        cmd.trotting_active = int(self.trot)
-        self.publisher_.publish(cmd)
+        # --- Movement Grid ---
+        elif key == 'i': twist.linear.x = self.speed
+        elif key == ',': twist.linear.x = -self.speed
+        elif key == 'j': twist.angular.z = self.turn
+        elif key == 'l': twist.angular.z = -self.turn
+        elif key == 'u': twist.linear.x = self.speed; twist.angular.z = self.turn
+        elif key == 'o': twist.linear.x = self.speed; twist.angular.z = -self.turn
+        elif key == 'm': twist.linear.x = -self.speed; twist.angular.z = -self.turn
+        elif key == '.': twist.linear.x = -self.speed; twist.angular.z = self.turn
+        
+        # --- Height (t/b) ---
+        elif key == 't': twist.linear.z = 1.0
+        elif key == 'b': twist.linear.z = -1.0
+        
+        # --- Stop ---
+        elif key == 'k' or key == ' ':
+            twist = Twist()
 
-    def send_final_msg(self):
-        # Sends one last 'stop' command on exit
-        cmd = Command()
-        cmd.height = -0.18
-        cmd.trotting_active = 0
-        self.publisher_.publish(cmd)
+        self.publisher_.publish(twist)
 
 def main(args=None):
     rclpy.init(args=args)
-    node = JaxTeleop()
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
+    node = JaxStandardTeleop()
+    try: rclpy.spin(node)
+    except KeyboardInterrupt: pass
     finally:
         termios.tcsetattr(sys.stdin, termios.TCSADRAIN, termios.tcgetattr(sys.stdin))
-        node.destroy_node()
-        rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
+        node.destroy_node(); rclpy.shutdown()

@@ -62,7 +62,7 @@ class JaxBehaviorController(Node):
             self.target_z_offset = 0.0  # Tell the loop to return to zero height
         
         # State transitions for Sitting
-        if abs(self.v_x) < 0.01 and self.v_yaw < -0.3:
+        if abs(self.v_x) < 0.01 and self.v_yaw < -5.0:
             self.is_sitting = True
         if abs(self.v_x) > 0.1:
             self.is_sitting = False
@@ -104,26 +104,34 @@ class JaxBehaviorController(Node):
         gait_speed = 6.0 if is_moving else 0.0
         t = (time.time() - self.start_time) * gait_speed
         rhythmic_sway = 0.003 * np.sin(t) if is_moving else 0.0
-        body_shift_y = rhythmic_sway + (active_yaw * 0.02)
+        body_shift_y = rhythmic_sway 
 
-        # --- SECTION 3D: ODOMETRY ---
+        
+        # --- SECTION 3D: ODOMETRY (Rotational Awareness) ---
+        # Moving based on current heading (yaw)
+        # We calculate the world-frame X and Y change based on local X velocity
         self.x_pos += (self.smooth_v_x * np.cos(self.yaw_pos)) * dt
+        self.y_pos += (self.smooth_v_x * np.sin(self.yaw_pos)) * dt
         self.yaw_pos += self.smooth_v_yaw * dt
 
         t_fs = TransformStamped()
         t_fs.header.stamp = self.get_clock().now().to_msg()
         t_fs.header.frame_id = 'odom'
         t_fs.child_frame_id = 'base_link'
+        
+        # Now both X and Y update in the transform
         t_fs.transform.translation.x = self.x_pos
         t_fs.transform.translation.y = self.y_pos
         t_fs.transform.translation.z = self.current_z_offset + abs(self.config.default_z_ref)
         
+        # Rotation math remains the same
         t_fs.transform.rotation.x = np.sin(roll/2) * np.cos(self.yaw_pos/2)
         t_fs.transform.rotation.y = np.sin(roll/2) * np.sin(self.yaw_pos/2)
         t_fs.transform.rotation.z = np.cos(roll/2) * np.sin(self.yaw_pos/2)
         t_fs.transform.rotation.w = np.cos(roll/2) * np.cos(self.yaw_pos/2)
+        
         self.tf_broadcaster.sendTransform(t_fs)
-
+        
         # --- SECTION 4: JOINT KINEMATICS ---
         js_msg = JointState()
         js_msg.header.stamp = self.get_clock().now().to_msg()
@@ -159,7 +167,7 @@ class JaxBehaviorController(Node):
                     progress = (local_t - np.pi) / np.pi
                     x_target += sx * (1.0 - 2.0 * progress)
                 
-                x_target += (0.04 * active_yaw) if i in [0, 1] else -(0.04 * active_yaw)
+                x_target += 0.0
 
             target = np.array([x_target, y_target, z_target])
             angles = leg_explicit_inverse_kinematics(target, i, self.config)
