@@ -1,11 +1,13 @@
-from setuptools import find_packages, setup
+from setuptools import setup
+import os
+from glob import glob
 
-package_name = 'jax_hardware'
+package_name = 'jax_hardware_peripherals'
 
 setup(
     name=package_name,
-    version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    version='0.0.1',
+    packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -13,19 +15,13 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='tdp378',
-    maintainer_email='tdp378@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
-    extras_require={
-        'test': [
-            'pytest',
-        ],
-    },
+    maintainer='TDP378',
+    description='LCD and Sensor peripherals for Jax robot',
+    license='Apache License 2.0',
+    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'bridge = jax_hardware.jax_hardware_node:main',
-            'sim_bridge = jax_hardware.sim_bridge:main',
+            'lcd_node = jax_hardware_peripherals.lcd_node:main'
         ],
     },
 )
