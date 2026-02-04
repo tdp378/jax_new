@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'lcd_node = jax_hardware_peripherals.lcd_node:main',
+            'nano_bridge = jax_hardware_peripherals.nano_bridge:main',
         ],
     },
 )
