@@ -2,7 +2,7 @@ from setuptools import setup
 import os
 from glob import glob
 
-package_name = 'jax_hardware_peripherals'
+package_name = 'jax_hardware'
 
 setup(
     name=package_name,
@@ -16,12 +16,12 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='TDP378',
-    description='LCD and Sensor peripherals for Jax robot',
+    description='Hardware interface',
     license='Apache License 2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'lcd_node = jax_hardware_peripherals.lcd_node:main'
+            'jax_hardware_node = jax_hardware.jax_hardware_node:main'
         ],
     },
 )
