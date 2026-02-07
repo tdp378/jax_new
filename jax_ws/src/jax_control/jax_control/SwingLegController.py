@@ -43,23 +43,19 @@ class SwingController:
         return swing_height_
 
     def next_foot_location(self, swing_prop, leg_index, state, command):
-        """Interpolates between the current foot location and the touchdown target."""
-        assert 0 <= swing_prop <= 1
-        
-        foot_location = state.foot_locations[:, leg_index]
-        swing_height_ = self.swing_height(swing_prop)
+        """Drives the leg using the swing percentage (0.0 to 1.0)"""
+        # 1. Landing target based on teleop speed
         touchdown_location = self.raibert_touchdown_location(leg_index, command)
         
-        # Calculate time remaining in the swing phase
-        time_left = self.config.dt * self.config.swing_ticks * (1.0 - swing_prop)
+        # 2. Starting point (Neutral stance)
+        start_location = self.config.default_stance[:, leg_index]
         
-        # Linear interpolation for X and Y, and the calculated swing height for Z
-        v = (touchdown_location - foot_location) / max(time_left, self.config.dt)
-        delta_f = v * self.config.dt
+        # 3. Interpolate X and Y based on progress (swing_prop)
+        new_location = (1.0 - swing_prop) * start_location + swing_prop * touchdown_location
         
-        # We want the foot to move toward the touchdown point 
-        # but follow the vertical 'arch' defined by swing_height
-        incremented_location = foot_location + delta_f
-        incremented_location[2] = self.config.default_z_ref + swing_height_
+        # 4. Add the vertical arch (Z)
+        new_location[2] = self.config.default_z_ref + self.swing_height(swing_prop)
+        
+        return new_location
 
-        return incremented_location
+   

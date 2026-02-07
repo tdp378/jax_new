@@ -16,11 +16,18 @@ def generate_launch_description():
             output='screen',
             parameters=[{'robot_description': Command(['xacro ', urdf_file])}]
         ),
+        # ADD THIS NODE TO GET THE SLIDERS
+        #Node(
+         #   package='joint_state_publisher_gui',
+          #  executable='joint_state_publisher_gui',
+           # name='joint_state_publisher_gui'
+        #),
+     
+
         Node(
             package='rviz2',
             executable='rviz2',
             name='rviz2',
             output='screen',
-            # Add arguments here if you want to load a specific .rviz config later
         )
     ])

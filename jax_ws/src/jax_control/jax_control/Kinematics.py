@@ -6,59 +6,42 @@ from math import *
 from jax_control.util import RotMatrix3D, point_to_rad
 from transforms3d.euler import euler2mat
 
-def leg_explicit_inverse_kinematics(r_body_foot, leg_index, config):
-    """Find the joint angles corresponding to the given body-relative foot position 
-    for a given leg and configuration for Jax.
+def leg_explicit_inverse_kinematics(r_local_foot, leg_index, config):
+    # Determine leg side (1 and 3 are Right)
+    is_right = (leg_index == 1 or leg_index == 3)
     
-    Parameters
-    ----------
-    r_body_foot : numpy array (3)
-        The x,y,z co-ordinates of the foot relative to the first leg frame
-    leg_index : int
-        0 = Front left, 1 = Front right, 2 = Rear left, 3 = Rear right
-    config : Configuration class
-        Configuration class containing Jax link lengths and parameters
+    # We use local coordinates (already relative to shoulder)
+    x, y, z = r_local_foot[0], r_local_foot[1], r_local_foot[2]
     
-    Returns
-    -------
-    angles : numpy array (3)
-        Array of calculated joint angles (theta_1, theta_2, theta_3)
-    """
-
-    # Determine if leg is a right or a left leg
-    if leg_index == 1 or leg_index == 3:
-        is_right = 0
-    else:
-        is_right = 1
-    
-    # Flip the y axis if the foot is a right foot to make calculation correct
-    x,y,z = r_body_foot[0], r_body_foot[1], r_body_foot[2]
-    if not is_right:
+    # Mirroring: Only flip Y for the Right side to match the single-leg IK model
+    if is_right:
         y = -y
 
-    # Distance from the hip to the foot projected onto the Y-Z plane
+    # Calculate distance in the Y-Z plane (the "hip-to-foot" reach)
     R = sqrt(y**2 + z**2)
     
-    # Distance from the hip joint to the foot
-    D = sqrt(R**2 - config.L1**2 + x**2)
+    # Math Safety: Prevent square root of negative numbers (The crash culprit)
+    if R < config.L1:
+        return np.array([0.0, 0.6, 1.2]) 
 
-    # Calculate theta_1 (Hip Roll)
-    theta_1 = atan2(y, -z) - atan2(config.L1, sqrt(R**2 - config.L1**2))
+    # --- IK Math ---
+    # Theta 1: Hip Abduction
+    # max(0, ...) ensures we never take the sqrt of a negative number
+    theta_1 = atan2(y, -z)
+    # D: Distance from the hip joint to the foot
+    D_sq = R**2 - config.L1**2 + x**2
+    D = sqrt(max(0, D_sq))
     
-    # Calculate theta_3 (Knee)
-    # Using law of cosines
+    # Theta 3: Knee
     cos_theta_3 = (config.L2**2 + config.L3**2 - D**2) / (2 * config.L2 * config.L3)
-    cos_theta_3 = np.clip(cos_theta_3, -1, 1) # Prevent NaN from float errors
-    theta_3 = acos(cos_theta_3)
+    theta_3 = acos(np.clip(cos_theta_3, -1, 1))
 
-    # Calculate theta_2 (Hip Pitch)
-    alpha = atan2(x, sqrt(R**2 - config.L1**2))
+    # Theta 2: Thigh
+    alpha = atan2(x, sqrt(max(0, R**2 - config.L1**2)))
     cos_beta = (config.L2**2 + D**2 - config.L3**2) / (2 * config.L2 * D)
-    cos_beta = np.clip(cos_beta, -1, 1)
-    beta = acos(cos_beta)
-    theta_2 = alpha + beta
+    theta_2 = alpha + acos(np.clip(cos_beta, -1, 1))
 
-    return np.array([theta_1, theta_2, theta_3])
+    return np.array([theta_1, theta_2 - 1.57, theta_3 - .785])
 
 def leg_forward_kinematics(angles, config, is_right):
     """Calculates foot position from joint angles for Jax."""
