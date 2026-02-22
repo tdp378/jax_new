@@ -1,3 +1,0 @@
-[console_scripts]
-initial_pose = jax_bringup.initial_pose:main
-
