@@ -1,0 +1,3 @@
+[console_scripts]
+jax_brain = jax_controller.jax_brain:main
+

@@ -1,0 +1,6 @@
+Invoking command in '/home/tdp378/jax_ws/build/jax_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/tdp378/jax_ws/src/jax_description -DCMAKE_INSTALL_PREFIX=/home/tdp378/jax_ws/install/jax_description
+Invoked command in '/home/tdp378/jax_ws/build/jax_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/tdp378/jax_ws/src/jax_description -DCMAKE_INSTALL_PREFIX=/home/tdp378/jax_ws/install/jax_description
+Invoking command in '/home/tdp378/jax_ws/build/jax_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/tdp378/jax_ws/build/jax_description -- -j16 -l16
+Invoked command in '/home/tdp378/jax_ws/build/jax_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/tdp378/jax_ws/build/jax_description -- -j16 -l16
+Invoking command in '/home/tdp378/jax_ws/build/jax_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/tdp378/jax_ws/build/jax_description
+Invoked command in '/home/tdp378/jax_ws/build/jax_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/tdp378/jax_ws/build/jax_description

@@ -1,0 +1,4 @@
+source;share/jax_description/local_setup.bash
+source;share/jax_description/local_setup.dsv
+source;share/jax_description/local_setup.sh
+source;share/jax_description/local_setup.zsh

@@ -1,0 +1,6 @@
+source;share/jax_controller/hook/pythonpath.ps1
+source;share/jax_controller/hook/pythonpath.dsv
+source;share/jax_controller/hook/pythonpath.sh
+source;share/jax_controller/hook/ament_prefix_path.ps1
+source;share/jax_controller/hook/ament_prefix_path.dsv
+source;share/jax_controller/hook/ament_prefix_path.sh

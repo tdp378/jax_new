@@ -1,0 +1,25 @@
+[0.425s] Invoking command in '/home/tdp378/jax_ws/build/jax_controller': PYTHONPATH=/home/tdp378/jax_ws/build/jax_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tdp378/jax_ws/build/jax_controller/build --no-deps symlink_data
+[0.597s] running develop
+[0.704s] running egg_info
+[0.704s] creating jax_controller.egg-info
+[0.704s] writing jax_controller.egg-info/PKG-INFO
+[0.704s] writing dependency_links to jax_controller.egg-info/dependency_links.txt
+[0.704s] writing entry points to jax_controller.egg-info/entry_points.txt
+[0.705s] writing requirements to jax_controller.egg-info/requires.txt
+[0.705s] writing top-level names to jax_controller.egg-info/top_level.txt
+[0.705s] writing manifest file 'jax_controller.egg-info/SOURCES.txt'
+[0.706s] reading manifest file 'jax_controller.egg-info/SOURCES.txt'
+[0.706s] writing manifest file 'jax_controller.egg-info/SOURCES.txt'
+[0.707s] running build_ext
+[0.708s] Creating /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax-controller.egg-link (link to .)
+[0.708s] Installing jax_brain script to /home/tdp378/jax_ws/install/jax_controller/lib/jax_controller
+[0.708s] 
+[0.708s] Installed /home/tdp378/jax_ws/build/jax_controller
+[0.708s] running symlink_data
+[0.708s] creating /home/tdp378/jax_ws/install/jax_controller/share/ament_index
+[0.708s] creating /home/tdp378/jax_ws/install/jax_controller/share/ament_index/resource_index
+[0.709s] creating /home/tdp378/jax_ws/install/jax_controller/share/ament_index/resource_index/packages
+[0.709s] symbolically linking /home/tdp378/jax_ws/build/jax_controller/resource/jax_controller -> /home/tdp378/jax_ws/install/jax_controller/share/ament_index/resource_index/packages
+[0.709s] symbolically linking /home/tdp378/jax_ws/build/jax_controller/package.xml -> /home/tdp378/jax_ws/install/jax_controller/share/jax_controller
+[0.709s] creating /home/tdp378/jax_ws/install/jax_controller/share/jax_controller/launch
+[0.725s] Invoked command in '/home/tdp378/jax_ws/build/jax_controller' returned '0': PYTHONPATH=/home/tdp378/jax_ws/build/jax_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tdp378/jax_ws/build/jax_controller/build --no-deps symlink_data

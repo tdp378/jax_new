@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating jax_controller.egg-info
+writing jax_controller.egg-info/PKG-INFO
+writing dependency_links to jax_controller.egg-info/dependency_links.txt
+writing entry points to jax_controller.egg-info/entry_points.txt
+writing requirements to jax_controller.egg-info/requires.txt
+writing top-level names to jax_controller.egg-info/top_level.txt
+writing manifest file 'jax_controller.egg-info/SOURCES.txt'
+reading manifest file 'jax_controller.egg-info/SOURCES.txt'
+writing manifest file 'jax_controller.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax-controller.egg-link (link to .)
+Installing jax_brain script to /home/tdp378/jax_ws/install/jax_controller/lib/jax_controller
+
+Installed /home/tdp378/jax_ws/build/jax_controller
+running symlink_data
+creating /home/tdp378/jax_ws/install/jax_controller/share/ament_index
+creating /home/tdp378/jax_ws/install/jax_controller/share/ament_index/resource_index
+creating /home/tdp378/jax_ws/install/jax_controller/share/ament_index/resource_index/packages
+symbolically linking /home/tdp378/jax_ws/build/jax_controller/resource/jax_controller -> /home/tdp378/jax_ws/install/jax_controller/share/ament_index/resource_index/packages
+symbolically linking /home/tdp378/jax_ws/build/jax_controller/package.xml -> /home/tdp378/jax_ws/install/jax_controller/share/jax_controller
+creating /home/tdp378/jax_ws/install/jax_controller/share/jax_controller/launch

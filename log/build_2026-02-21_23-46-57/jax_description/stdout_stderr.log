@@ -1,0 +1,61 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/tdp378/jax_ws/build/jax_description
+-- Install configuration: ""
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/urdf
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/urdf/jax.urdf.xacro
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/right_hip_collision.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/right_thigh_collision.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/base_link.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/left_calf.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/left_hip_collision.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/foot.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/right_thigh.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/right_calf_collision.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/right_calf.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/base_link_orig.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/right_hip.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/left_thigh.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/front_left_foot.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/foot_collision.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/rear_right_foot.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/rear_left_foot.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/base_link1.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/left_thigh_collision.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/left_hip.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/left_calf_collision.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/base_collision.stl
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/meshes/front_right_calf.STL
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/ament_index/resource_index/package_run_dependencies/jax_description
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/ament_index/resource_index/parent_prefix_path/jax_description
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/environment/ament_prefix_path.sh
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/environment/ament_prefix_path.dsv
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/environment/path.sh
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/environment/path.dsv
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/local_setup.bash
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/local_setup.sh
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/local_setup.zsh
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/local_setup.dsv
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/package.dsv
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/ament_index/resource_index/packages/jax_description
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/cmake/jax_descriptionConfig.cmake
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/cmake/jax_descriptionConfig-version.cmake
+-- Installing: /home/tdp378/jax_ws/install/jax_description/share/jax_description/package.xml

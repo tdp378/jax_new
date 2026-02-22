@@ -1,0 +1,66 @@
+[0.740s] Invoking command in '/home/tdp378/jax_ws/build/jax_controller': PYTHONPATH=/home/tdp378/jax_ws/build/jax_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/tdp378/jax_ws/build/jax_controller/build
+[0.900s] running develop
+[0.999s] Removing /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax-controller.egg-link (link to .)
+[1.013s] Invoked command in '/home/tdp378/jax_ws/build/jax_controller' returned '0': PYTHONPATH=/home/tdp378/jax_ws/build/jax_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/tdp378/jax_ws/build/jax_controller/build
+[1.014s] Invoking command in '/home/tdp378/jax_ws/src/jax_controller': PYTHONPATH=/home/tdp378/jax_ws/build/jax_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jax_controller build --build-base /home/tdp378/jax_ws/build/jax_controller/build install --record /home/tdp378/jax_ws/build/jax_controller/install.log --single-version-externally-managed install_data --force
+[1.160s] running egg_info
+[1.160s] writing ../../build/jax_controller/jax_controller.egg-info/PKG-INFO
+[1.160s] writing dependency_links to ../../build/jax_controller/jax_controller.egg-info/dependency_links.txt
+[1.160s] writing entry points to ../../build/jax_controller/jax_controller.egg-info/entry_points.txt
+[1.160s] writing requirements to ../../build/jax_controller/jax_controller.egg-info/requires.txt
+[1.160s] writing top-level names to ../../build/jax_controller/jax_controller.egg-info/top_level.txt
+[1.161s] reading manifest file '../../build/jax_controller/jax_controller.egg-info/SOURCES.txt'
+[1.162s] writing manifest file '../../build/jax_controller/jax_controller.egg-info/SOURCES.txt'
+[1.162s] running build
+[1.162s] running build_py
+[1.162s] creating /home/tdp378/jax_ws/build/jax_controller/build
+[1.162s] creating /home/tdp378/jax_ws/build/jax_controller/build/lib
+[1.162s] creating /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.162s] copying jax_controller/State.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.162s] copying jax_controller/Command.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.162s] copying jax_controller/Kinematics copy.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.162s] copying jax_controller/Config.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.162s] copying jax_controller/StanceController.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.162s] copying jax_controller/Gaits.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.162s] copying jax_controller/__init__.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.163s] copying jax_controller/Kinematics.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.163s] copying jax_controller/jax_brain.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.163s] copying jax_controller/SwingLegController.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.163s] copying jax_controller/Controller.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.163s] copying jax_controller/util.py -> /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller
+[1.163s] running install
+[1.163s] running install_lib
+[1.163s] creating /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.163s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/State.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/Command.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/Kinematics copy.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/Config.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/StanceController.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/Gaits.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/__init__.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/Kinematics.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/jax_brain.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/SwingLegController.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/Controller.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] copying /home/tdp378/jax_ws/build/jax_controller/build/lib/jax_controller/util.py -> /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller
+[1.164s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/State.py to State.cpython-310.pyc
+[1.164s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/Command.py to Command.cpython-310.pyc
+[1.165s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/Kinematics copy.py to Kinematics copy.cpython-310.pyc
+[1.165s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/Config.py to Config.cpython-310.pyc
+[1.166s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/StanceController.py to StanceController.cpython-310.pyc
+[1.166s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/Gaits.py to Gaits.cpython-310.pyc
+[1.166s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/__init__.py to __init__.cpython-310.pyc
+[1.166s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/Kinematics.py to Kinematics.cpython-310.pyc
+[1.167s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/jax_brain.py to jax_brain.cpython-310.pyc
+[1.167s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/SwingLegController.py to SwingLegController.cpython-310.pyc
+[1.168s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/Controller.py to Controller.cpython-310.pyc
+[1.168s] byte-compiling /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller/util.py to util.cpython-310.pyc
+[1.168s] running install_data
+[1.168s] copying resource/jax_controller -> /home/tdp378/jax_ws/install/jax_controller/share/ament_index/resource_index/packages
+[1.169s] copying package.xml -> /home/tdp378/jax_ws/install/jax_controller/share/jax_controller
+[1.169s] running install_egg_info
+[1.170s] Copying ../../build/jax_controller/jax_controller.egg-info to /home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages/jax_controller-0.0.0-py3.10.egg-info
+[1.170s] running install_scripts
+[1.182s] Installing jax_brain script to /home/tdp378/jax_ws/install/jax_controller/lib/jax_controller
+[1.182s] writing list of installed files to '/home/tdp378/jax_ws/build/jax_controller/install.log'
+[1.194s] Invoked command in '/home/tdp378/jax_ws/src/jax_controller' returned '0': PYTHONPATH=/home/tdp378/jax_ws/build/jax_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/jax_ws/install/jax_controller/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/jax_controller build --build-base /home/tdp378/jax_ws/build/jax_controller/build install --record /home/tdp378/jax_ws/build/jax_controller/install.log --single-version-externally-managed install_data --force
